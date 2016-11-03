@@ -1,0 +1,11 @@
+{
+  "name": "angularapp",
+  "version": "1.0.0",
+  "description": "basic app",
+  "author": "eu",
+  "license": "ISC",
+  "devDependencies":{
+    "grunt": "*",
+    "grunt-browser-sync": "*"
+  }
+}

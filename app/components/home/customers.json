@@ -1,0 +1,6 @@
+[
+    {"name": "Ion","company": "Endava", "customRefference": "angajat", "email": "ion@endava.com"},
+    {"name": "Bogdan","company": "Endava", "customRefference": "grad", "email": "bogdan@endava.com"},
+    {"name": "Mihai","company": "UPB", "customRefference": "student", "email": "mihai@upb.com"},
+    {"name": "Alex","company": "Petrom", "customRefference": "colaborator", "email": "alex@petrom.com"}
+  ]

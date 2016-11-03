@@ -1,0 +1,87 @@
+<div>
+    Hello {{name}}!!
+
+    {{customers[0].name}}
+</div>
+<div class="whitespace">
+    <div class="btn-group" role="group">
+        <button type="button" class="btn btn-default active"><i class="fa fa-circle fa-fw green" aria-hidden="true"></i> Active</button>
+        <button type="button" class="btn btn-default"><i class="fa fa-circle fa-fw grey" aria-hidden="true"></i> Pending</button>
+        <button type="button" class="btn btn-default"><i class="fa fa-circle fa-fw yellow" aria-hidden="true"></i> Inactive</button>
+    </div>
+    <button ng-click="showAddCustomer()"type="button" class="btn btn-danger">Add <i class="fa fa-plus fa-fw" aria-hidden="true"></i></button>
+    <div>
+<!--        <form class="simple-form">
+            Name: <input type="text" ng-model="customer.name"/><br>
+            Company: <input type="text" ng-model="customer.company"/><br>
+            Custom Ref: <input type="text" ng-model="customer.customRefference"/><br>
+            Email : <input type="text" ng-model="customer.email"/><br>
+            <input type="button" ng-click="save(customer)" value="ADD"/>
+        </form>-->
+        <div ng-if="showAddCustomerForm" id="addCustomerForm">
+            <form ng-submit="submit(customer)">
+                <div class="form-group">
+                    <label for="Name">Name</label>
+                    <input ng-model="customer.name" type="text" class="form-control" id="name" placeholder="name">
+                </div>
+                <div class="form-group">
+                    <label for="Company">Company</label>
+                    <input ng-model="customer.company" type="text" class="form-control" id="company" placeholder="company">
+                </div>
+                <div class="form-group">
+                    <label for="customRefference">Custom Refference</label>
+                    <input ng-model="customer.customRefference" type="text" class="form-control" id="customRefference" placeholder="Custom Rfference">
+                </div>
+                <div class="form-group">
+                    <label for="email">email</label>
+                    <input ng-model="customer.email" type="text" class="form-control" id="email" placeholder="email">
+                </div>
+                <button ng-click="save(customer)" type="submit" class="btn btn-primary">Add customer</button>
+                <button ng-click="hideAddCustomer()"  class="btn btn-warning btn-md pull-right">Hide this form</button>
+            </form>
+        </div>
+    </div>
+</div>
+<hr></hr>
+<div class="container-fluid">
+    <div class="exportbar">
+
+        <p>Created between</p>
+        <form role="form">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Start date"></input>
+            </div>
+            <p>&</p>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="End date"></input>
+            </div>
+        </form>
+        <button type="button" class="btn btn-default btn-sm"><i class="fa fa-exchange fa-fw" aria-hidden="true"></i> Export</button>
+
+    </div>
+
+
+    <div>
+        <table class="table table-hover table-bordered">
+            <thead>
+            <tr>
+                <th></th>
+                <th>NAME</th>
+                <th>COMPANY</th>
+                <th>CUSTOM REFERENCE</th>
+                <th>EMAIL</th>
+                <th>ADDED</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="customer in customers">
+                <td>status</td>
+                <td>{{customer.name}}</td>
+                <td>{{customer.company}}</td>
+                <td>{{customer.customRefference}}</td>
+                <td>{{customer.email}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
