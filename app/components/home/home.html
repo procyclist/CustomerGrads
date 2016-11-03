@@ -11,32 +11,32 @@
     </div>
     <button ng-click="showAddCustomer()"type="button" class="btn btn-danger">Add <i class="fa fa-plus fa-fw" aria-hidden="true"></i></button>
     <div>
-<!--        <form class="simple-form">
+        <!-- <form class="simple-form">
             Name: <input type="text" ng-model="customer.name"/><br>
             Company: <input type="text" ng-model="customer.company"/><br>
             Custom Ref: <input type="text" ng-model="customer.customRefference"/><br>
             Email : <input type="text" ng-model="customer.email"/><br>
             <input type="button" ng-click="save(customer)" value="ADD"/>
-        </form>-->
+        </form> -->
         <div ng-if="showAddCustomerForm" id="addCustomerForm">
-            <form ng-submit="submit(customer)">
+            <form name="cForm" ng-submit="submit(customerForm)">
                 <div class="form-group">
                     <label for="Name">Name</label>
-                    <input ng-model="customer.name" type="text" class="form-control" id="name" placeholder="name">
+                    <input ng-model="customerForm.name" type="text" class="form-control" id="name" placeholder="name">
                 </div>
                 <div class="form-group">
                     <label for="Company">Company</label>
-                    <input ng-model="customer.company" type="text" class="form-control" id="company" placeholder="company">
+                    <input ng-model="customerForm.company" type="text" class="form-control" id="company" placeholder="company">
                 </div>
                 <div class="form-group">
                     <label for="customRefference">Custom Refference</label>
-                    <input ng-model="customer.customRefference" type="text" class="form-control" id="customRefference" placeholder="Custom Rfference">
+                    <input ng-model="customerForm.customRefference" type="text" class="form-control" id="customRefference" placeholder="Custom Rfference">
                 </div>
                 <div class="form-group">
                     <label for="email">email</label>
-                    <input ng-model="customer.email" type="text" class="form-control" id="email" placeholder="email">
+                    <input ng-model="customerForm.email" type="text" class="form-control" id="email" placeholder="email">
                 </div>
-                <button ng-click="save(customer)" type="submit" class="btn btn-primary">Add customer</button>
+                <button ng-click="save(customerForm)" type="submit" class="btn btn-primary">Add customer</button>
                 <button ng-click="hideAddCustomer()"  class="btn btn-warning btn-md pull-right">Hide this form</button>
             </form>
         </div>

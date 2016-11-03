@@ -27,15 +27,20 @@
         };
 
 
-        $scope.save = function(customer){
-            console.log(customer);
-        };
+         $scope.save = function(addedCustomer){
+            console.log(addedCustomer);
+            var custom = [];
+            angular.copy(addedCustomer, custom);
+            $scope.customers.push(custom);
+            console.log($scope.customers);
+         };
 
-        $scope.submit = function(customer){
-            console.log(customer.name);
-            $scope.customers.push(customer);
-           // customerService.saveCustomer(customer);
-        }
+        // $scope.submit = function(customer){
+        //     console.log(customer);
+        //     $scope.customers.push(customer);
+        //     console.log($scope.customers);
+        //    // customerService.saveCustomer(customer);
+      //  }
     }
 
 })();
