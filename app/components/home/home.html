@@ -8,8 +8,9 @@
         <button type="button" class="btn btn-default active"><i class="fa fa-circle fa-fw green" aria-hidden="true"></i> Active</button>
         <button type="button" class="btn btn-default"><i class="fa fa-circle fa-fw grey" aria-hidden="true"></i> Pending</button>
         <button type="button" class="btn btn-default"><i class="fa fa-circle fa-fw yellow" aria-hidden="true"></i> Inactive</button>
+        <button type="button"  ng-click="goToPayouts()" class="btn btn-info"><i class="fa" aria-hidden="true"></i> Go To Payouts</button>
     </div>
-    <button ng-click="showAddCustomer()"type="button" class="btn btn-danger">Add <i class="fa fa-plus fa-fw" aria-hidden="true"></i></button>
+    <button ng-click="showAddCustomer()" type="button" class="btn btn-danger">Add <i class="fa fa-plus fa-fw" aria-hidden="true"></i></button>
     <div>
 <!--        <form class="simple-form">
             Name: <input type="text" ng-model="customer.name"/><br>
@@ -19,7 +20,8 @@
             <input type="button" ng-click="save(customer)" value="ADD"/>
         </form>-->
         <div ng-if="showAddCustomerForm" id="addCustomerForm">
-            <form ng-submit="submit(customer)">
+            <div class ="row">
+                <form ng-submit="submit(customer)">
                 <div class="form-group">
                     <label for="Name">Name</label>
                     <input ng-model="customer.name" type="text" class="form-control" id="name" placeholder="name">
@@ -36,8 +38,11 @@
                     <label for="email">email</label>
                     <input ng-model="customer.email" type="text" class="form-control" id="email" placeholder="email">
                 </div>
-                <button ng-click="save(customer)" type="submit" class="btn btn-primary">Add customer</button>
-                <button ng-click="hideAddCustomer()"  class="btn btn-warning btn-md pull-right">Hide this form</button>
+            </div>
+                <div class="row">
+                    <button ng-click="save(customer)" type="submit" class="btn btn-primary">Add customer</button>
+                    <button ng-click="hideAddCustomer()"  class="btn btn-warning btn-md pull-right">Hide this form</button>
+                </div>
             </form>
         </div>
     </div>

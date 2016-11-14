@@ -7,14 +7,16 @@
     angular.module('grads')
         .controller('HomeController',HomeController);
 
-    HomeController.$inject=['$scope','customerService'];
+    HomeController.$inject=['$scope','customerService', '$state','$rootScope', '$stateParams'];
 
-    function HomeController($scope,customerService){
+    function HomeController($scope,customerService, $state, $rootScope, $stateParams){
+
+        $rootScope.$state = $state;
+        $rootScope.$stateParams = $stateParams;
             $scope.name = "Eu";
           //  $scope.customers = null;
-            customerService.getAllCustomers().then(function(response){
-                console.log(response.data);
-                $scope.customers = response.data;
+            customerService.getAllCustomers().then(function(data){
+                $scope.customers = data;
                 console.log("din functie:", $scope.customers)
             });
 
@@ -26,14 +28,20 @@
             $scope.showAddCustomerForm = false;
         };
 
+        $scope.goToPayouts = function(){
+            $state.go('payouts');
+        };
+
 
         $scope.save = function(customer){
             console.log(customer);
+            var cust= [];
+            angular.copy(customer, cust);
+            $scope.customers.push(cust);
         };
 
         $scope.submit = function(customer){
             console.log(customer.name);
-            $scope.customers.push(customer);
            // customerService.saveCustomer(customer);
         }
     }

@@ -16,7 +16,10 @@
             return $http({
                method: 'GET',
                url: 'components/home/customers.json'
-           });
+           })
+                .then(function(response){
+                    return response.data;
+                });
         };
 
         service.saveCustomer = function(customer){
