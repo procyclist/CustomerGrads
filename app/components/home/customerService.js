@@ -15,7 +15,7 @@
             var customers = [];
             return $http({
                method: 'GET',
-               url: 'components/home/customers.json'
+               url: 'app/components/home/customers.json'
            })
                 .then(function(response){
                     return response.data;
@@ -25,7 +25,7 @@
         service.saveCustomer = function(customer){
             $http({
                 method: 'POST',
-                url: 'components/home/customers.json',
+                url: 'app/components/home/customers.json',
                 data:{customer: JSON.stringify(customer)}
             })
                 .then(function(response){
