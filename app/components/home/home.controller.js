@@ -4,46 +4,28 @@
 (function(){
     'use strict';
 
-    angular.module('grads')
+    angular.module('chatApp')
         .controller('HomeController',HomeController);
 
-    HomeController.$inject=['$scope','customerService', '$state','$rootScope', '$stateParams'];
+    HomeController.$inject=['$scope', '$state','$rootScope', '$stateParams', '$firebaseObject'];
 
-    function HomeController($scope,customerService, $state, $rootScope, $stateParams){
+    function HomeController($scope, $state, $rootScope, $stateParams, $firebaseObject){
+
+        var database = firebase.database();
 
         $rootScope.$state = $state;
         $rootScope.$stateParams = $stateParams;
-            $scope.name = "Eu";
-          //  $scope.customers = null;
-            customerService.getAllCustomers().then(function(data){
-                $scope.customers = data;
-                console.log("din functie:", $scope.customers)
-            });
 
-        $scope.showAddCustomer = function(){
-            $scope.showAddCustomerForm = true;
+        $scope.name = "";
+
+        $scope.login = function(username){
+            console.log("Username: ", username);
+            $state.go('chat');
         };
 
-        $scope.hideAddCustomer = function(){
-            $scope.showAddCustomerForm = false;
-        };
-
-        $scope.goToPayouts = function(){
-            $state.go('payouts');
-        };
-
-
-        $scope.save = function(customer){
-            console.log(customer);
-            var cust= [];
-            angular.copy(customer, cust);
-            $scope.customers.push(cust);
-        };
-
-        $scope.submit = function(customer){
-            console.log(customer.name);
-           // customerService.saveCustomer(customer);
-        }
+        database.ref('/users').once('value').then(function(snap){
+            console.log(snap.val());
+        });
     }
 
 })();
